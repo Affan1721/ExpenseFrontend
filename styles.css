@@ -61,6 +61,13 @@ label {
     font-weight: bold;
     color: #555;
 }
+p {
+    display: inline;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    font-weight: bold;
+    color: #555;
+}
 
 input[type="number"],
 input[type="text"] {

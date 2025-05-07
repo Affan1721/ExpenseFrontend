@@ -11,6 +11,7 @@ function clearError() {
 }
 
 function loadExpenses() {
+    var total = 0; 
     clearError();
     fetch('https://localhost:7082/api/expenses/List')
         .then(response => {
@@ -29,6 +30,7 @@ function loadExpenses() {
                 idCell.textContent = expense.id;
                 valueCell.textContent = expense.value;
                 descriptionCell.textContent = expense.description;
+                total += expense.value;
 
                 const editButton = document.createElement('button');
                 editButton.textContent = 'Edit';
@@ -41,6 +43,8 @@ function loadExpenses() {
                 actionsCell.appendChild(editButton);
                 actionsCell.appendChild(deleteButton);
             });
+            let output = document.getElementById('total-value');
+            output.textContent = total;
         })
         .catch(error => {
             console.error('Error loading expenses:', error);
